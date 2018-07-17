@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+    <title>About us</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/w3.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-blue.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+            $(document).ready(function(){
+                //load the parts of the page that are always the same across the portal
+                $("#footerContent").load("footer.html");
+            });
+        </script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-118863115-2"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-118863115-2');
+    </script>
+
+    <style>
+        .selected{
+            background-color:#8c6868 ;
+        }
+    </style>
+    <body>
+        <header class="w3-container w3-theme w3-padding w3-center" id="topMenu"> 
+        <div class="w3-container">
+            <div class="w3-quarter w3-container w3-padding-8">
+                <a href="index.html"><img src="images/spflogo_1.png" width="80" style="float:right"/></a> 
+            </div>
+            <div class="w3-half w3-container">
+            <h2>OPMW</h2>
+            </div>
+        </div>  
+  
+        <div class="w3-center">
+                <div class="w3-bar w3-theme">
+                  <a href="introduction.html" class="w3-bar-item w3-button w3-padding-8  selected">Introduction</a>
+                  <a href="documents.html" class="w3-bar-item w3-button w3-padding-8">Documents and applications</a>
+                  <a href="examples.html" class="w3-bar-item w3-button w3-padding-8">Examples</a>
+                  <a href="publications.html" class="w3-bar-item w3-button w3-padding-8">Publications</a>
+                  <a href="workflow.html" class="w3-bar-item w3-button w3-padding-8">Workflow repository</a>
+                  <a href="interoperability.html" class="w3-bar-item w3-button w3-padding-8">Interoperability</a>
+                  <a href="about.html" class="w3-bar-item w3-button w3-padding-8">About us</a>
+                </div>  
+            </div>
+    </header>
+
+
+    <div class="w3-content">
+        <div class="section">
+            <h1 class="title" id="page-title">
+                About us
+            </h1>
+            <div class="field-item even" property="content:encoded">
+                <ul>
+                    <li>
+                        <a href="http://www.isi.edu/~gil/">Yolanda Gil</a>: Principal investigator and project leader at the Information Sciences Institute (University of Southern California)
+                    </li>
+                    <li>
+                        <a href="http://www.isi.edu/~varunr/">Varun Ratnakar</a>: Research programmer at the Information Sciences Institute (University of Southern California)
+                    </li>
+                    <li>
+                        <a href="http://delicias.dia.fi.upm.es/members/DGarijo/">Daniel Garijo</a>: PhD student at the Ontology Engineering Group (Universidad Politécnica de Madrid)
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <!-- Footer (defined in footer.html)-->
+    <footer class="w3-container w3-theme-dark w3-padding-16" style="box-shadow:0 50vh 0 50vh #3D2B24;" id ="footerContent">
+    </footer>
+    </body>
+</html>

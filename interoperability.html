@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+    <title>About us</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/w3.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-blue.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+            $(document).ready(function(){
+                //load the parts of the page that are always the same across the portal
+                $("#footerContent").load("footer.html");
+            });
+        </script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-118863115-2"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-118863115-2');
+    </script>
+
+    <style>
+        .selected{
+            background-color:#8c6868 ;
+        }
+    </style>
+    <body>
+        <header class="w3-container w3-theme w3-padding w3-center" id="topMenu"> 
+        <div class="w3-container">
+            <div class="w3-quarter w3-container w3-padding-8">
+                <a href="index.html"><img src="images/spflogo_1.png" width="80" style="float:right"/></a> 
+            </div>
+            <div class="w3-half w3-container">
+            <h2>OPMW</h2>
+            </div>
+        </div>  
+  
+        <div class="w3-center">
+                <div class="w3-bar w3-theme">
+                  <a href="introduction.html" class="w3-bar-item w3-button w3-padding-8  selected">Introduction</a>
+                  <a href="documents.html" class="w3-bar-item w3-button w3-padding-8">Documents and applications</a>
+                  <a href="examples.html" class="w3-bar-item w3-button w3-padding-8">Examples</a>
+                  <a href="publications.html" class="w3-bar-item w3-button w3-padding-8">Publications</a>
+                  <a href="workflow.html" class="w3-bar-item w3-button w3-padding-8">Workflow repository</a>
+                  <a href="interoperability.html" class="w3-bar-item w3-button w3-padding-8">Interoperability</a>
+                  <a href="about.html" class="w3-bar-item w3-button w3-padding-8">About us</a>
+                </div>  
+            </div>
+    </header>
+
+
+    <div class="w3-content">
+        <div class="section">
+            <h1 class="title" id="page-title">
+                Interoperability
+            </h1>
+            <div class="field field-name-body field-type-text-with-summary field-label-hidden">
+                <div class="field-items">
+                    <div class="field-item even" property="content:encoded">
+                        <h2>Publishing OPMW provenance according to the PROV standard</h2>
+
+                        <p>The <a href="http://www.w3.org/2011/prov/wiki/">W3C Provenance Working Group</a> has been developing a new provenance standard during the last year and a half. This standard has been discussed from a set of concepts proposed at the end of the <a href="">Provenance Incubator Group</a>. The group has recently released (July 2012) a family of documents that explain how to represent (PROV Data Model (<a href="http://www.w3.org/TR/prov-dm/">PROV-DM</a>), PROV Ontology (<a href="http://dvcs.w3.org/hg/prov/raw-file/tip/ontology/Overview.html">PROV-O</a>), <a href="http://www.w3.org/TR/prov-primer/">PROV-PRIMER</a>) and consume (<a href="http://www.w3.org/TR/prov-aq/">PROV-AQ</a>) provenance on the Web, and they are currently calling for implementations.</p>
+
+                        <p>The main focus of OPMW is to make the provenance of scientific workflows available as Linked Data. For this reason, we aim to align the vocabulary to PROV and produce the RDF in a fully compatible way. In this page we illustrate how both vocabularies are related to each other, and how can anyone retrieve PROV statements from our endpoint of published workflows.</p>
+
+                        <p>For our alignment we will rely on the PROV-O ontology, which encodes PROV-DM in OWL.</p>
+
+                        <h3> Mapping OPMW to PROV</h3>
+                        <p>The next table summarizes the concepts, properties and data properties that we can map to PROV. Those concepts or properties missing in the table have no equivalent in PROV-O.</p>
+
+                        <p><img src="http://skc.isi.edu/wiki/wings-drugome/images/f/ff/Mapping.png"></p>
+                            
+                        <p>As it can be seen in the table, we have mapped four concepts of OPMV to PROV. This decision was taken for several reasons:</p>
+
+                        <p>1.- The relations connect Artifacts and processes in OPMW. In order to produce PROV provenance, we need to map these properties.</p>
+
+                        <p>2.- OPM was one of the main references to PROV. The properties opmv:used, opmv:wasGeneratedBy and opmv:wasControlledBy were the ones that originated prov:used, prov:wasGeneratedBy and prov:WasAssociatedWith. Since OPMV's entities are more restrictive than PROV's, it is natural to map these properties as subproperties of PROV.</p>
+
+                        <h3>Querying the endpoint with PROV</h3>
+
+                        <p>When we publish a workflow, we produce additional triples to translate the provenance-related statements to PROV. For example, for each opmw:WorkflowExecutionArtifact, we add the type prov:Entity (since opmw:WorkflowExecutionArtifact is a subclass of prov:Entity, each resource of type opmw:WorkflowExecutionArtifact is also a prov:Entity).</p>
+                            
+                        <p>This design decission implies to assert a few triples more per workflow, but allows to query the endpoint directly with PROV without any need of an intermediate   transformation or construct query.</p>
+                            
+                        <p>As an example, we will provide the PROV query for the example three in the <a href="http://www.opmw.org/node/6#">Examples</a> section (the query wants to know how the entity with location <a href="http://www.opmw.org/datasets/resource/2/221/2f681a26f9ccae58e04164a27a2f29b3">http://www.opmw.org/datasets/resource/2/221/2f681a26f9ccae58e04164a27a2f...</a> was generated). Some additional relationships are added because they are plan-specific, and out of the scope of PROV.</p>
+                        
+                        <pre style = "background-color: rgba(0, 0, 0, 0.6);">
+                            prefix prov: &lt;http://www.w3.org/ns/prov#&gt;
+                            prefix opmw: &lt;http://www.opmw.org/ontology/&gt;
+                            select distinct ?process ?absProcess ?template where 
+                            {
+                                ?entity prov:atLocation "http://www.opmw.org/datasets/resource/2/221/2f681a26f9cca
+                                    e58e04164a27a2f29b3"^^xsd:anyURI.
+                                ?entity prov:wasGeneratedBy ?process. 
+                                ?process opmw:correspondsToTemplateProcess ?absProcess.
+                                ?absProcess opmw:isStepOfTemplate ?template.
+                            }
+                        </pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <br/>
+    <!-- Footer (defined in footer.html)-->
+    <footer class="w3-container w3-theme-dark w3-padding-16" style="box-shadow:0 50vh 0 50vh #3D2B24;" id ="footerContent">
+    </footer>
+    </body>
+</html>
