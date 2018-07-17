@@ -7,6 +7,7 @@
 <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-blue.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<link rel="shortcut icon" href="favicon.ico" type="image/vnd.microsoft.icon" />
 <script>
 $(document).ready(function(){
     //load the parts of the page that are always the same across the portal
@@ -62,14 +63,14 @@ p {
 <h1 class="title" id="page-title"> Examples </h1>
 <p>This pages aims to help you test <a href="http://opmw.org/sparql">our SPARQL endpoint</a>. We propose some sample queries  that can be posted in the form at the bottom of the page. The results obtained will grow as we keep publishing workflows. </p>
 <p>The first example query retrieves the different templates available in the respository:</p>
-<pre>prefix opmw: &lt;http://www.opmw.org/ontology/&gt;
+<pre style = "background-color: rgba(0, 0, 0, 0.05);">prefix opmw: &lt;http://www.opmw.org/ontology/&gt;
 select distinct ?template where 
 {
     ?template a opmw:WorkflowTemplate.
 }
 </pre><p>
 If we now  are curious about the runs associated to each template, the query is: </p>
-<pre>prefix opmw: &lt;http://www.opmw.org/ontology/&gt;
+<pre style = "background-color: rgba(0, 0, 0, 0.05);">prefix opmw: &lt;http://www.opmw.org/ontology/&gt;
 select distinct ?template ?run where 
 {
     ?template a opmw:WorkflowTemplate.
@@ -78,7 +79,7 @@ select distinct ?template ?run where
 }
 </pre><p>Now lets retrieve something different. What if I want to know how a certain file was generated? We only now the current location of the file, which is: <a href="http://wind.isi.edu/opmdata/resource/2/221/5a292b81e13d45bccdfe64d931fb655e">http://wind.isi.edu/opmdata/resource/2/221/5a292b81e13d45bccdfe64d931fb655e</a>.<br />
 This next query will retrieve the process that generated the file, its abstract process of the template, the run and the template itself:</p>
-<pre>prefix opmw: &lt;http://www.opmw.org/ontology/&gt;
+<pre style = "background-color: rgba(0, 0, 0, 0.05);">prefix opmw: &lt;http://www.opmw.org/ontology/&gt;
 prefix opmv: &lt;http://purl.org/net/opmv/ns#&gt;
 prefix opmo: &lt;http://openprovenance.org/model/opmo#&gt;
 select distinct ?process ?absProcess ?run ?template  where 
