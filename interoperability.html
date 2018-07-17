@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-    <title>About us</title>
+    <title>OPMW</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="css/w3.css">
@@ -27,6 +27,10 @@
         .selected{
             background-color:#8c6868 ;
         }
+
+        p {
+            line-height : 2;
+        }
     </style>
     <body>
         <header class="w3-container w3-theme w3-padding w3-center" id="topMenu"> 
@@ -41,12 +45,12 @@
   
         <div class="w3-center">
                 <div class="w3-bar w3-theme">
-                  <a href="introduction.html" class="w3-bar-item w3-button w3-padding-8  selected">Introduction</a>
+                  <a href="introduction.html" class="w3-bar-item w3-button w3-padding-8">Introduction</a>
                   <a href="documents.html" class="w3-bar-item w3-button w3-padding-8">Documents and applications</a>
                   <a href="examples.html" class="w3-bar-item w3-button w3-padding-8">Examples</a>
                   <a href="publications.html" class="w3-bar-item w3-button w3-padding-8">Publications</a>
                   <a href="workflow.html" class="w3-bar-item w3-button w3-padding-8">Workflow repository</a>
-                  <a href="interoperability.html" class="w3-bar-item w3-button w3-padding-8">Interoperability</a>
+                  <a href="interoperability.html" class="w3-bar-item w3-button w3-padding-8 selected">Interoperability</a>
                   <a href="about.html" class="w3-bar-item w3-button w3-padding-8">About us</a>
                 </div>  
             </div>
@@ -88,7 +92,7 @@
                             
                         <p>As an example, we will provide the PROV query for the example three in the <a href="http://www.opmw.org/node/6#">Examples</a> section (the query wants to know how the entity with location <a href="http://www.opmw.org/datasets/resource/2/221/2f681a26f9ccae58e04164a27a2f29b3">http://www.opmw.org/datasets/resource/2/221/2f681a26f9ccae58e04164a27a2f...</a> was generated). Some additional relationships are added because they are plan-specific, and out of the scope of PROV.</p>
                         
-                        <pre style = "background-color: rgba(0, 0, 0, 0.6);">
+                        <pre style = "background-color: rgba(0, 0, 0, 0.05);">
                             prefix prov: &lt;http://www.w3.org/ns/prov#&gt;
                             prefix opmw: &lt;http://www.opmw.org/ontology/&gt;
                             select distinct ?process ?absProcess ?template where 
