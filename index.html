@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-<title>Scientific Paper of the Future</title>
+<title>OPMW</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="css/w3.css">
@@ -36,28 +36,37 @@ background-color:#8c6868 ;
         <a href="index.html"><img src="images/spflogo_1.png" width="80" style="float:right"/></a> 
     </div>
     <div class="w3-half w3-container">
-        <h2>The Scientific Paper of the Future Initiative</h2>
+        <h2>OPMW</h2>
     </div>
 </div>  
   
 <div class="w3-center">
     <div class="w3-bar w3-theme">
-      <a href="index.html" class="w3-bar-item w3-button w3-padding-8  selected">Home</a>
-      <a href="motivation.html" class="w3-bar-item w3-button w3-padding-8">Motivation</a>
-      <a href="spf.html" class="w3-bar-item w3-button w3-padding-8">What is a SPF</a>
-      <a href="sessions.html" class="w3-bar-item w3-button w3-padding-8">Sessions</a>
-      <a href="materials.html" class="w3-bar-item w3-button w3-padding-8">Materials</a>
-      <a href="events.html" class="w3-bar-item w3-button w3-padding-8">Events</a>
-      <a href="gallery.html" class="w3-bar-item w3-button w3-padding-8">Gallery</a>
-      <a href="faq.html" class="w3-bar-item w3-button w3-padding-8">FAQ</a>
-      <a href="organization.html" class="w3-bar-item w3-button w3-padding-8">Organization</a>
-      <a href="sponsor.html" class="w3-bar-item w3-button w3-padding-8">Sponsorship</a>
+      <a href="introduction.html" class="w3-bar-item w3-button w3-padding-8  selected">Introduction</a>
+      <a href="documents.html" class="w3-bar-item w3-button w3-padding-8">Documents and applications</a>
+      <a href="examples.html" class="w3-bar-item w3-button w3-padding-8">Examples</a>
+      <a href="publications.html" class="w3-bar-item w3-button w3-padding-8">Publications</a>
+      <a href="workflow.html" class="w3-bar-item w3-button w3-padding-8">Workflow repository</a>
+      <a href="interperability.html" class="w3-bar-item w3-button w3-padding-8">Interoperability</a>
+      <a href="about.html" class="w3-bar-item w3-button w3-padding-8">About us</a>
     </div>  
 </div>
 </header>
 
 
 <div class="w3-content">
+<h1 class="title" id="page-title"> Documents and applications </h1>
+<li><strong>The latest OPMW specification can be found <a href="http://www.opmw.org/model/OPMW/">here</a>.</strong></li>
+<li>The OPMW ontology can be found and downloaded <a href="http://www.opmw.org/model/OPMW/opmw3.1.owl"> here</a>.</li>
+<li>Do you want to query our endpoint? check it out <a href="http://opmw.org/sparql"> here</a>. </li>
+<li>An example query describing the templates of the endpoint can be found <a href="http://opmw.org/sparql?default-graph-uri=&amp;query=select+distinct+%3Ftemplate+%3Fprop+%3Fobject+where+{%0D%0A%3Ftemplate+a+%3Chttp%3A%2F%2Fwww.opmw.org%2Fontology%2FWorkflowTemplate%3E.%0D%0A%3Ftemplate+%3Fprop+%3Fobject}+LIMIT+1000&amp;format=text%2Fhtml&amp;timeout=0&amp;debug=on"> here</a></li>
+<li>A demo exploiting different results available at the endpoint can be seen here <a href="http://wind.isi.edu/DemoWFLinkedData/wfTempl.html"> here</a>.</li>
+<li>The application for transforming Wings traces and templates into OPMW is available <a href="https://github.com/dgarijo/WingsProvenanceExport"> here</a>.</li>
+</ul><ul><li><strong>The latest P-Plan specification can be found <a href="http://purl.org/net/p-plan">here</a>.</strong></li>
+</ul></div></div></div>  </div>
+
+
+
 <p>In the near future, scientists will routinely use new tools to develop research papers that will document all the associated digital objects (data, software, workflows, etc.). This will make science more open, promote fair credit of scientific contributions, and facilitate reproducibility.  </p>
 <p><b>The Scientific Papers of the Future (SPF) is an initiative to encourage geoscientists to publish papers together with the associated digital products of their research</b>.  This means that a paper would include: 1) Documentation of datasets, including descriptions, unique identifiers, and availability in public repositories; 2) Documentation of software, including pre-processing of data and visualization steps, described with metadata and with unique identifiers and pointers to public code repositories; 3) Documentation of the provenance and workflow for each figure or result.  </p>
 <p><b>The Scientific Paper of the Future concept was initiated by the <a href="http://www.earthcube.org">EarthCube</a> <a href="http://www.ontosoft.org">OntoSoft</a> project as the <a href="http://www.scientificpaperofthefuture.org/gpf">Geoscience Papers of the Future</a>, funded under the National Science Foundation awards ICER-1343800 and ICER-1440323. Exemplar papers and other information are available at that web site.</b></p>
