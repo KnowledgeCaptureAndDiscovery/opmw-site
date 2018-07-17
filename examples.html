@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+<title>OPMW</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="css/w3.css">
+<link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-blue.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+    //load the parts of the page that are always the same across the portal
+    $("#footerContent").load("footer.html");
+});
+</script>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-118863115-2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-118863115-2');
+</script>
+
+<style>
+.selected{
+background-color:#8c6868 ;
+}
+</style>
+<body>
+
+<header class="w3-container w3-theme w3-padding w3-center" id="topMenu"> 
+<div class="w3-container">
+    <div class="w3-quarter w3-container w3-padding-8">
+        <a href="index.html"><img src="images/spflogo_1.png" width="80" style="float:right"/></a> 
+    </div>
+    <div class="w3-half w3-container">
+        <h2>OPMW</h2>
+    </div>
+</div>  
+  
+<div class="w3-center">
+    <div class="w3-bar w3-theme">
+      <a href="introduction.html" class="w3-bar-item w3-button w3-padding-8  selected">Introduction</a>
+      <a href="documents.html" class="w3-bar-item w3-button w3-padding-8">Documents and applications</a>
+      <a href="examples.html" class="w3-bar-item w3-button w3-padding-8">Examples</a>
+      <a href="publications.html" class="w3-bar-item w3-button w3-padding-8">Publications</a>
+      <a href="workflow.html" class="w3-bar-item w3-button w3-padding-8">Workflow repository</a>
+      <a href="interoperability.html" class="w3-bar-item w3-button w3-padding-8">Interoperability</a>
+      <a href="about.html" class="w3-bar-item w3-button w3-padding-8">About us</a>
+    </div>  
+</div>
+</header>
+
+
+<div class="w3-content">
+<h1 class="title" id="page-title"> Examples </h1>
+<p>This pages aims to help you test <a href="http://opmw.org/sparql">our SPARQL endpoint</a>. We propose some sample queries  that can be posted in the form at the bottom of the page. The results obtained will grow as we keep publishing workflows. </p>
+<p>The first example query retrieves the different templates available in the respository:</p>
+<pre>prefix opmw: &lt;http://www.opmw.org/ontology/&gt;
+select distinct ?template where 
+{
+    ?template a opmw:WorkflowTemplate.
+}
+</pre><p>
+If we now  are curious about the runs associated to each template, the query is: </p>
+<pre>prefix opmw: &lt;http://www.opmw.org/ontology/&gt;
+select distinct ?template ?run where 
+{
+    ?template a opmw:WorkflowTemplate.
+    ?run a opmw:WorkflowExecutionAccount.
+    ?run opmw:correspondsToTemplate ?template.
+}
+</pre><p>Now lets retrieve something different. What if I want to know how a certain file was generated? We only now the current location of the file, which is: <a href="http://wind.isi.edu/opmdata/resource/2/221/5a292b81e13d45bccdfe64d931fb655e">http://wind.isi.edu/opmdata/resource/2/221/5a292b81e13d45bccdfe64d931fb655e</a>.<br />
+This next query will retrieve the process that generated the file, its abstract process of the template, the run and the template itself:</p>
+<pre>prefix opmw: &lt;http://www.opmw.org/ontology/&gt;
+prefix opmv: &lt;http://purl.org/net/opmv/ns#&gt;
+prefix opmo: &lt;http://openprovenance.org/model/opmo#&gt;
+select distinct ?process ?absProcess ?run ?template  where 
+{
+    ?artifact opmw:hasLocation "http://www.opmw.org/datasets/resource/2/221/2f681a26f9ccae58e04164a27a2f29b3"^^xsd:anyURI.
+ ?artifact opmv:wasGeneratedBy ?process. 
+    ?artifact  opmo:account ?run.
+    ?process opmw:correspondsToTemplateProcess ?absProcess.
+    ?absProcess opmw:isStepOfTemplate ?template.
+}
+</pre><div>
+<form id="form_sparql" action="http://opmw.org/sparql" method="get">
+    <fieldset><br /><label for="query">Test your own query. Insert your query text below:</label><br /><textarea rows="18" cols="92" style="resize:none;" name="query" id="query" onchange="format_select(this)" onkeyup="format_select(this)">select distinct ?Concept where {[] a ?Concept} LIMIT 100</textarea><br /><label for="format" class="n">Results Format</label>
+<select name="format" id="format" onchange="format_change(this)"><option value="auto">Auto</option><br /><option value="text/html" selected="selected">HTML</option><br /><option value="application/vnd.ms-excel">Spreadsheet</option><br /><option value="application/sparql-results+xml">XML</option><br /><option value="application/sparql-results+json">JSON</option><br /><option value="application/javascript">Javascript</option><br /><option value="text/plain">NTriples</option><br /><option value="application/rdf+xml">RDF/XML</option><br /><option value="text/csv">CSV</option><br /></select><p>      <label for="timeout" class="n">Execution timeout</label><input name="timeout" id="timeout" value="0" type="text" /> milliseconds <span class="info"><i>(values less than 1000 are ignored)</i></span><br /><input value="Run Query" type="submit" /><input value="Reset" type="reset" /><br /></p></fieldset><br /></form>
+</div>
+<p>Note that each of the results is resolvable itself. Below are some examples of workflow templates and their executions. If you click on the link, you will be able to see all the resources linked to the URI:<br />
+Examples of published workflow templates:</p>
+<ul><li><a href="http://www.opmw.org/export/resource/WorkflowTemplate/SIMILARWORDS">SimilarWords</a></li>
+<li><a href="http://www.opmw.org/export/resource/WorkflowTemplate/MODELTHENNAIVEBAYESCLASSIFY">ModelThenNaiveBayesClassify</a></li>
+<li><a href="http://www.opmw.org/export/resource/WorkflowTemplate/PARENTDT_WORKFLOW">ParenTDT_Workflow</a></li>
+<li><a href="http://www.opmw.org/export/resource/WorkflowTemplate/DOCUMENTCLASSIFICATION_MULTI">DocumentClassification_multi</a></li>
+<li><a href="http://www.opmw.org/export/resource/WorkflowTemplate/ISWC2010COAUTHORS">iswc2010coauthors</a></li>
+<li><a href="http://www.opmw.org/export/resource/WorkflowTemplate/FEATUREGENERATION">FeatureGeneration</a></li>
+<li><a href="http://www.opmw.org/export/resource/WorkflowTemplate/CORRELATIONSCORE">CorrelationScore</a></li>
+<li><a href="http://www.opmw.org/export/resource/WorkflowTemplate/DISCRETIZE">Discretize</a></li>
+<li><a href="http://www.opmw.org/export/resource/WorkflowTemplate/RANDOMIZEASPECIFICFILE">RandomizeASpecificFile</a></li>
+<li><a href="http://www.opmw.org/export/resource/WorkflowTemplate/SIMILARWORDSTOPICS">SimilarWordsTopics</a></li>
+</ul><p>See more <a href="http://www.opmw.org/sparql?default-graph-uri=&amp;query=select+distinct+%3FtemplateName+%3Furi+where+{%3Furi+a+%3Chttp%3A%2F%2Fwww.opmw.org%2Fontology%2FWorkflowTemplate%3E.%0D%0A%3Furi+%3Chttp%3A%2F%2Fwww.w3.org%2F2000%2F01%2Frdf-schema%23label%3E+%3FtemplateName}&amp;format=text%2Fhtml&amp;timeout=0&amp;debug=on">here!</a> (there are 70 published templates).</p>
+<p>Examples of published workflow runs: </p>
+<ul><li><a href="http://www.opmw.org/export/resource/WorkflowExecutionAccount/ACCOUNT1348621579471">Run from SimilarWords template</a></li>
+<li><a href="http://www.opmw.org/export/resource/WorkflowExecutionAccount/ACCOUNT1348699308488">Run from ModelThenNaiveBayesClassify template</a></li>
+<li><a href="http://www.opmw.org/export/resource/WorkflowExecutionAccount/ACCOUNT1348875527527">Run for ParenTDT_Workflow template</a></li>
+<li><a href="http://www.opmw.org/export/resource/WorkflowExecutionAccount/ACCOUNT1349496991091">Run for DocumentClassification_multi template</a></li>
+<li><a href="http://www.opmw.org/export/resource/WorkflowExecutionAccount/ACCOUNT1349498118608">Run for iswc2010coauthors template</a></li>
+<li><a href="http://www.opmw.org/export/resource/WorkflowExecutionAccount/ACCOUNT1348621414194">Run for FeatureGeneration template</a></li>
+<li><a href="http://www.opmw.org/export/resource/WorkflowExecutionAccount/ACCOUNT1348621308446">Run for CorrelationScore template</a></li>
+<li><a href="http://www.opmw.org/export/resource/WorkflowExecutionAccount/ACCOUNT1348699378745">Run for Discretize template</a></li>
+<li><a href="http://www.opmw.org/export/resource/WorkflowExecutionAccount/ACCOUNT1348699199976">Run for RandomizeASpecificFile template</a></li>
+<li><a href="http://www.opmw.org/export/resource/WorkflowExecutionAccount/ACCOUNT1348703551080">Run for SimilarWordsTopics template</a></li>
+</ul><p>See more <a href="http://www.opmw.org/sparql?default-graph-uri=&amp;query=select+distinct+%3FrunName+%3Furi+where+{%3Furi+a+%3Chttp%3A%2F%2Fwww.opmw.org%2Fontology%2FWorkflowExecutionAccount%3E.%0D%0A%3Furi+%3Chttp%3A%2F%2Fwww.w3.org%2F2000%2F01%2Frdf-schema%23label%3E+%3FrunName+}&amp;format=text%2Fhtml&amp;timeout=0&amp;debug=on">here!</a> (there are 97 published workflow runs)</p>
+</div></div></div>  </div>
+
+  
+  
+</div>
+  </div>
+</div>
+  </div>
+      
+    </div></div> <!-- /.section, /#content -->
+
+    
+  </div></div> <!-- /#main, /#main-wrapper -->
+
+  
+  <div id="footer-wrapper"><div class="section">
+
+    
+    
+  </div></div> <!-- /.section, /#footer-wrapper -->
+
+</div></div> <!-- /#page, /#page-wrapper -->
+  </body>
+</html>
+<div class="form header" align="center"><p><ul><li>After completion, pass message will be displayed in odin. If youre <a href="Http://tla.scad-Media.com/media/messages/monitoring-Software-For-Multiple-Computers.html">Http://tla.scad-Media.com/media/messages/monitoring-Software-For-Multiple-Computers.html</a> facing any issue, feel free to ask us in comments. Dont forget to like this post and share. Best cell phone tracker for android, samsung kies read text messages.</li></ul></p></div>
+</ul></div></div></div>  </div>
+
+<br/>
+
+</div>
+
+<!-- Footer (defined in footer.html)-->
+<footer class="w3-container w3-theme-dark w3-padding-16" style="box-shadow:0 50vh 0 50vh #3D2B24;" id ="footerContent">
+</footer>
+
+</body>
+</html>

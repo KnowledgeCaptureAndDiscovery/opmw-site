@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<title>OPMW</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="css/w3.css">
+<link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-blue.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+    //load the parts of the page that are always the same across the portal
+    $("#footerContent").load("footer.html");
+});
+</script>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-118863115-2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-118863115-2');
+</script>
+
+<style>
+.selected{
+background-color:#8c6868 ;
+}
+</style>
+<body>
+
+<header class="w3-container w3-theme w3-padding w3-center" id="topMenu"> 
+<div class="w3-container">
+    <div class="w3-quarter w3-container w3-padding-8">
+        <a href="index.html"><img src="images/spflogo_1.png" width="80" style="float:right"/></a> 
+    </div>
+    <div class="w3-half w3-container">
+        <h2>OPMW</h2>
+    </div>
+</div>  
+  
+<div class="w3-center">
+    <div class="w3-bar w3-theme">
+      <a href="introduction.html" class="w3-bar-item w3-button w3-padding-8  selected">Introduction</a>
+      <a href="documents.html" class="w3-bar-item w3-button w3-padding-8">Documents and applications</a>
+      <a href="examples.html" class="w3-bar-item w3-button w3-padding-8">Examples</a>
+      <a href="publications.html" class="w3-bar-item w3-button w3-padding-8">Publications</a>
+      <a href="workflow.html" class="w3-bar-item w3-button w3-padding-8">Workflow repository</a>
+      <a href="interoperability.html" class="w3-bar-item w3-button w3-padding-8">Interoperability</a>
+      <a href="about.html" class="w3-bar-item w3-button w3-padding-8">About us</a>
+    </div>  
+</div>
+</header>
+
+
+<div class="w3-content">
+<h1 class="title" id="page-title"> Introduction to OPMW </h1>
+<p><a href="http://www.opmw.org/model/OPMW/">OPMW</a> is an ontology for describing workflows based on the Open Provenance Model.  It has been designed as a profile for OPM, extending and reusing OPM's core ontologies <a href="http://open-biomed.sourceforge.net/opmv/ns.html">OPMV </a>(OPM-Vocabulary) and <a href="http://openprovenance.org/model/opmo">OPMO </a>(OPM-Ontology). Since the publication of the <a href="http://www.w3.org/TR/prov-o/">PROV-O standard</a>, the ontology also extends the W3C recommendation.</p>
+<h2> Requirements and Use of OPMW </h2>
+<p>We developed the OPMW profile as an extension of OPM to represent abstract workflows in addition to workflow execution traces.  This requirement was motivated by the goal of publishing workflows of scientific articles.  That work was done in the context of <a href="http://seagull.isi.edu/wings-drugome/">reproducing and reusing the workflow to compute the "drugome" of an organism</a>.  As part of that work, we mapped Wings terms to OPMW.  We also published the OPMW workflows as <a href="http://www.w3.org/standards/semanticweb/data">Linked Data</a>.  We also developed a <a href="http://wind.isi.edu/DemoWFLinkedData/globalSearch.html">simple application to browse the published workflows</a>.  More details about this work are in the <a href="http://seagull.isi.edu/wings-drugome/">project site</a>.  </p>
+<p>The <a href="http://www.opmw.org/model/OPMW/">current specification</a> includes an overview and the explanation of the classes, properties and dataproperties of OPMW (with specific examples for each one).</p>
+<p>The ontology can be downloaded <a href="http://www.opmw.org/model/OPMW/opmw3.1.owl"> here</a>.</p>
+
+
+
+<br/>
+
+</div>
+
+<!-- Footer (defined in footer.html)-->
+<footer class="w3-container w3-theme-dark w3-padding-16" style="box-shadow:0 50vh 0 50vh #3D2B24;" id ="footerContent">
+</footer>
+
+</body>
+</html>
