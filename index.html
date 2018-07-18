@@ -1,83 +1,59 @@
 <!DOCTYPE html>
 <html>
-<title>OPMW</title>
+<title>OPMW.org</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="css/w3.css">
-<link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-blue.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="css/w3-theme-blue.css">
+<link rel="stylesheet" href="css/font-awesome.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script>
-$(document).ready(function(){
-    //load the parts of the page that are always the same across the portal
-    $("#footerContent").load("footer.html");
-});
-</script>
+
 <!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-118863115-2"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-118863115-4"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
 
-  gtag('config', 'UA-118863115-2');
+  gtag('config', 'UA-118863115-4');
 </script>
 
-<style>
-.selected{
-    background-color:#8c6868 ;
-}
-</style>
 <body>
 
 <header class="w3-container w3-theme w3-padding w3-center" id="topMenu"> 
 <div class="w3-container">
-    <div class="w3-quarter w3-container w3-padding-8">
-        <a href="index.html"><img src="images/spflogo_1.png" width="80" style="float:right"/></a> 
-    </div>
-    <div class="w3-half w3-container">
-        <h2>OPMW</h2>
-    </div>
+        <h2>OPMW-PROV: The Open Provenance Model for Workflows</h2>
+    
 </div>  
   
 <div class="w3-center">
     <div class="w3-bar w3-theme">
-      <a href="introduction.html" class="w3-bar-item w3-button w3-padding-8  selected">Introduction</a>
+      <a href="index.html" class="w3-bar-item w3-button w3-padding-8  selected">About</a>
       <a href="documents.html" class="w3-bar-item w3-button w3-padding-8">Documents and applications</a>
       <a href="examples.html" class="w3-bar-item w3-button w3-padding-8">Examples</a>
       <a href="publications.html" class="w3-bar-item w3-button w3-padding-8">Publications</a>
       <a href="workflow.html" class="w3-bar-item w3-button w3-padding-8">Workflow repository</a>
-      <a href="interperability.html" class="w3-bar-item w3-button w3-padding-8">Interoperability</a>
-      <a href="about.html" class="w3-bar-item w3-button w3-padding-8">About us</a>
+      <a href="interoperability.html" class="w3-bar-item w3-button w3-padding-8">Interoperability</a>
+      <a href="demo.html" class="w3-bar-item w3-button w3-padding-8">Demo</a>
+      <a href="team.html" class="w3-bar-item w3-button w3-padding-8">Team</a>
     </div>  
 </div>
 </header>
 
 
 <div class="w3-content">
-<h1 class="title" id="page-title"> Documents and applications </h1>
-<li><strong>The latest OPMW specification can be found <a href="http://www.opmw.org/model/OPMW/">here</a>.</strong></li>
-<li>The OPMW ontology can be found and downloaded <a href="http://www.opmw.org/model/OPMW/opmw3.1.owl"> here</a>.</li>
-<li>Do you want to query our endpoint? check it out <a href="http://opmw.org/sparql"> here</a>. </li>
-<li>An example query describing the templates of the endpoint can be found <a href="http://opmw.org/sparql?default-graph-uri=&amp;query=select+distinct+%3Ftemplate+%3Fprop+%3Fobject+where+{%0D%0A%3Ftemplate+a+%3Chttp%3A%2F%2Fwww.opmw.org%2Fontology%2FWorkflowTemplate%3E.%0D%0A%3Ftemplate+%3Fprop+%3Fobject}+LIMIT+1000&amp;format=text%2Fhtml&amp;timeout=0&amp;debug=on"> here</a></li>
-<li>A demo exploiting different results available at the endpoint can be seen here <a href="http://wind.isi.edu/DemoWFLinkedData/wfTempl.html"> here</a>.</li>
-<li>The application for transforming Wings traces and templates into OPMW is available <a href="https://github.com/dgarijo/WingsProvenanceExport"> here</a>.</li>
-</ul><ul><li><strong>The latest P-Plan specification can be found <a href="http://purl.org/net/p-plan">here</a>.</strong></li>
-</ul></div></div></div>  </div>
+<p><a href="http://www.opmw.org/model/OPMW/">OPMW</a> is an ontology for describing workflows based on the Open Provenance Model.  It has been designed as a profile for OPM, extending and reusing OPM's core ontologies <a href="http://open-biomed.sourceforge.net/opmv/ns.html">OPMV </a>(OPM-Vocabulary) and <a href="http://openprovenance.org/model/opmo">OPMO </a>(OPM-Ontology). Since the publication of the <a href="http://www.w3.org/TR/prov-o/">PROV-O standard</a>, the ontology also extends the W3C recommendation.</p>
 
-
-
-<p>In the near future, scientists will routinely use new tools to develop research papers that will document all the associated digital objects (data, software, workflows, etc.). This will make science more open, promote fair credit of scientific contributions, and facilitate reproducibility.  </p>
-<p><b>The Scientific Papers of the Future (SPF) is an initiative to encourage geoscientists to publish papers together with the associated digital products of their research</b>.  This means that a paper would include: 1) Documentation of datasets, including descriptions, unique identifiers, and availability in public repositories; 2) Documentation of software, including pre-processing of data and visualization steps, described with metadata and with unique identifiers and pointers to public code repositories; 3) Documentation of the provenance and workflow for each figure or result.  </p>
-<p><b>The Scientific Paper of the Future concept was initiated by the <a href="http://www.earthcube.org">EarthCube</a> <a href="http://www.ontosoft.org">OntoSoft</a> project as the <a href="http://www.scientificpaperofthefuture.org/gpf">Geoscience Papers of the Future</a>, funded under the National Science Foundation awards ICER-1343800 and ICER-1440323. Exemplar papers and other information are available at that web site.</b></p>
-<p><a href="http://mailman.isi.edu/mailman/listinfo/spf-announce">Please subscribe to this mailing list</a> if you would like to receive notifications of training sessions and other general announcements about SPF.</p>
-
+<h3> Requirements and Use of OPMW </h3>
+<p>We developed the OPMW profile as an extension of OPM to represent abstract workflows in addition to workflow execution traces.  This requirement was motivated by the goal of publishing workflows of scientific articles.  That work was done in the context of <a href="http://seagull.isi.edu/wings-drugome/">reproducing and reusing the workflow to compute the "drugome" of an organism</a>.  As part of that work, we mapped Wings terms to OPMW.  We also published the OPMW workflows as <a href="http://www.w3.org/standards/semanticweb/data">Linked Data</a>.  We also developed a <a href="http://wind.isi.edu/DemoWFLinkedData/globalSearch.html">simple application to browse the published workflows</a>.  More details about this work are in the <a href="http://seagull.isi.edu/wings-drugome/">project site</a>.  </p>
+<p>The <a href="http://www.opmw.org/model/OPMW/">current specification</a> includes an overview and the explanation of the classes, properties and dataproperties of OPMW (with specific examples for each one).</p>
+<p>The ontology can be downloaded <a href="model/OPMW/opmw3.1.owl"> here</a>.</p>
 <br/>
 
 </div>
 
-<!-- Footer (defined in footer.html)-->
-<footer class="w3-container w3-theme-dark w3-padding-16" style="box-shadow:0 50vh 0 50vh #3D2B24;" id ="footerContent">
+
+<footer class="w3-container w3-theme-dark w3-padding-16">
 </footer>
 
 </body>

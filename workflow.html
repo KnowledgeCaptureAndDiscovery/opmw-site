@@ -1,100 +1,61 @@
 <!DOCTYPE html>
 <html>
-    <title>OPMW</title>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="css/w3.css">
-    <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-blue.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css">
-    <link rel="shortcut icon" href="favicon.ico" type="image/vnd.microsoft.icon" />
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script>
-            $(document).ready(function(){
-                //load the parts of the page that are always the same across the portal
-                $("#footerContent").load("footer.html");
-            });
-        </script>
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-118863115-2"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
+<title>OPMW.org</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="css/w3.css">
+<link rel="stylesheet" href="css/w3-theme-blue.css">
+<link rel="stylesheet" href="css/font-awesome.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
-        gtag('config', 'UA-118863115-2');
-    </script>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-118863115-4"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
 
-    <style>
-        .selected{
-            background-color:#8c6868 ;
-        }
+  gtag('config', 'UA-118863115-4');
+</script>
 
-        p {
-            line-height : 2;
-        }
-    </style>
-    <body>
-        <header class="w3-container w3-theme w3-padding w3-center" id="topMenu"> 
-        <div class="w3-container">
-            <div class="w3-quarter w3-container w3-padding-8">
-                <a href="index.html"><img src="images/spflogo_1.png" width="80" style="float:right"/></a> 
-            </div>
-            <div class="w3-half w3-container">
-            <h2>OPMW</h2>
-            </div>
-        </div>  
+<body>
+
+<header class="w3-container w3-theme w3-padding w3-center" id="topMenu"> 
+<div class="w3-container">
+        <h2>OPMW-PROV: The Open Provenance Model for Workflows</h2>
+    
+</div>  
   
-        <div class="w3-center">
-                <div class="w3-bar w3-theme">
-                  <a href="introduction.html" class="w3-bar-item w3-button w3-padding-8">Introduction</a>
-                  <a href="documents.html" class="w3-bar-item w3-button w3-padding-8">Documents and applications</a>
-                  <a href="examples.html" class="w3-bar-item w3-button w3-padding-8">Examples</a>
-                  <a href="publications.html" class="w3-bar-item w3-button w3-padding-8">Publications</a>
-                  <a href="workflow.html" class="w3-bar-item w3-button w3-padding-8 selected">Workflow repository</a>
-                  <a href="interoperability.html" class="w3-bar-item w3-button w3-padding-8">Interoperability</a>
-                  <a href="about.html" class="w3-bar-item w3-button w3-padding-8">About us</a>
-                </div>  
-            </div>
-    </header>
+<div class="w3-center">
+    <div class="w3-bar w3-theme">
+      <a href="index.html" class="w3-bar-item w3-button w3-padding-8">About</a>
+      <a href="documents.html" class="w3-bar-item w3-button w3-padding-8">Documents and applications</a>
+      <a href="examples.html" class="w3-bar-item w3-button w3-padding-8">Examples</a>
+      <a href="publications.html" class="w3-bar-item w3-button w3-padding-8">Publications</a>
+      <a href="workflow.html" class="w3-bar-item w3-button w3-padding-8 selected">Workflow repository</a>
+      <a href="interoperability.html" class="w3-bar-item w3-button w3-padding-8">Interoperability</a>
+      <a href="demo.html" class="w3-bar-item w3-button w3-padding-8">Demo</a>
+      <a href="team.html" class="w3-bar-item w3-button w3-padding-8">Team</a>
+    </div>  
+</div>
+</header>
 
     <div id="content" class="w3-content">
-        <div class="section">
-            <a id="main-content"></a>
-                <h1 class="title" id="page-title">
-                    Workflow repository
-                </h1>
-                <div class="tabs"></div>
-                    <div class="region region-content">
-                        <div id="block-system-main" class="block block-system">
-                            <div class="content">
-                                <div id="node-10" class="node node-page node-full clearfix" about="/node/10" typeof="foaf:Document">
-
-                                <span property="dc:title" content="Workflow repository" class="rdf-meta element-hidden"></span><span property="sioc:num_replies" content="0" datatype="xsd:integer" class="rdf-meta element-hidden"></span>
-
-                                <div class="content clearfix">
-                                        <div class="field field-name-body field-type-text-with-summary field-label-hidden">
-                                            <div class="field-items"><div class="field-item even" property="content:encoded">
-                                                <p>
-                                                    A workflow repository of templates and their execution provenance traces has been published according to the OPMW model.<br />
-                                                    These workflows belong to the Wings workflow system, and we have published them following the Linked Data principles. As it can be seen in the example section, all the workflow metadata is published for the templates (a description of the inputs, processes and outputs is provided) and the workflow execution provenance traces (intermediate results, outputs, software codes, etc.).<br />
-                                                    All the data can be accessed via SPARQL queries at the public endpoint (<a href="http://www.opmw.org/sparql">http://www.opmw.org/sparql</a>). For example, the following link provides a list of the URIs of the available published templates (click <a href="http://www.opmw.org/sparql?default-graph-uri=&amp;query=select+distinct+%3FtemplateName+%3Furi+where+{%3Furi+a+%3Chttp%3A%2F%2Fwww.opmw.org%2Fontology%2FWorkflowTemplate%3E.%0D%0A%3Furi+%3Chttp%3A%2F%2Fwww.w3.org%2F2000%2F01%2Frdf-schema%23label%3E+%3FtemplateName}&amp;format=text%2Fhtml&amp;timeout=0&amp;debug=on">here</a>)
-                                                </p>
-                                                <p>
-                                                    Since writting SPARQL is not very user-friendly, we have created a demo for browsing the existing workflow templates, available here:<br /><a href="http://mayor2.dia.fi.upm.es/oeg-upm/files/dgarijo/DemoWfLinkedData/">http://mayor2.dia.fi.upm.es/oeg-upm/files/dgarijo/DemoWfLinkedData/</a><br />
-                                                    In order to browse a template, start typing the name and it will be autocompleted. If you want to see a simple example just type "a" and all the workflows containing that letter will be displayed.<br />
-                                                    The demo is a work in progress.
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div> 
-            </div>
-        </div>
-    </div>
+    <p>
+    A workflow repository of templates and their execution provenance traces has been published following the OPMW model.</p>
+    <p>
+    These workflows belong to the WINGS workflow system, and we have published them following the Linked Data principles. As it can be seen in the example section, all the workflow metadata is published for the templates (a description of the inputs, processes and outputs is provided) and the workflow execution provenance traces (intermediate results, outputs, software codes, etc.).</p>
+    <p>All the data can be accessed via SPARQL queries at a public endpoint (like <a href="http://www.opmw.org/sparql">http://www.opmw.org/sparql</a>). For example, the following link provides a list of the URIs of the available published templates (click <a href="http://www.opmw.org/sparql?default-graph-uri=&amp;query=select+distinct+%3FtemplateName+%3Furi+where+{%3Furi+a+%3Chttp%3A%2F%2Fwww.opmw.org%2Fontology%2FWorkflowTemplate%3E.%0D%0A%3Furi+%3Chttp%3A%2F%2Fwww.w3.org%2F2000%2F01%2Frdf-schema%23label%3E+%3FtemplateName}&amp;format=text%2Fhtml&amp;timeout=0&amp;debug=on">here</a>)
+    </p>
+<p>
+    Since writting SPARQL is not very user-friendly, we have created a demo for browsing the existing workflow templates, available here: <a href="demo/html/index.html">http://opmw.org/demo/html/index.html</a><p/>
+    <p>
+    In order to browse a template, start typing the name and it will be autocompleted. If you want to see a simple example just type "a" and all the workflows containing that letter will be displayed.<br />
+    The demo is a work in progress.
+    </p>
+                                            
     <br/>
+    <footer class="w3-container w3-theme-dark w3-padding-16">
+    </footer>
     </body>
 </html>
